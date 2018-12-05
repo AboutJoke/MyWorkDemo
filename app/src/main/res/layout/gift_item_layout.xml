@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/giftLayout"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@android:color/transparent"
+    android:clipChildren="false"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical">
+
+        <RelativeLayout
+            android:id="@+id/info_layout"
+            android:layout_width="180dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_gift_item_normal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/panel_anim_view"
+                android:layout_width="68dp"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+            <RelativeLayout
+                android:id="@+id/portrait_area"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="1dp">
+
+                <ImageView
+                    android:id="@+id/portrait"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/default_icon" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="78dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/portrait_area"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/giftName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/panel_end"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-50dp"
+            android:layout_toRightOf="@+id/info_layout"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/giftImage"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-50dp"
+            android:layout_toRightOf="@+id/info_layout"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/gift_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/giftImage"
+            android:layout_alignLeft="@+id/giftImage"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="50% OFF"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:rotation="-15"
+            android:visibility="gone" />
+
+        <!--android:background="@drawable/live_voice_vote_offical_gift"-->
+        <!--官方直播间显示圆形图片布局-->
+        <RelativeLayout
+            android:id="@+id/rl_offical_gift"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignBottom="@id/info_layout"
+            android:layout_marginLeft="-56dp"
+            android:layout_toRightOf="@+id/info_layout"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/giftImage3"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="3dp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hitView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-2dp"
+            android:layout_toRightOf="@+id/giftImage"
+            android:fontFamily="sans-serif"
+            android:text=" x1 "
+            android:textColor="#fffff36b"
+            android:textSize="24sp"
+            android:textStyle="italic|bold"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/hit_star_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/hitView"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

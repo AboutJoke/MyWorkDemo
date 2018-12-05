@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layoutDirection="ltr"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/show"
+        android:text="show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <FrameLayout
+        android:id="@+id/layout_uplive_tips_ar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+
+        <com.sylvan.myworkdemo.wiget.NewMarqueeText
+            android:id="@+id/tv_uplive_tips_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_uplive_tips"
+            android:gravity="center"
+            android:paddingEnd="18dp"
+            android:layout_marginStart="30dp"
+            android:paddingStart="35dp"
+            android:ellipsize="none"
+            android:maxLines="1"
+            android:text="42424324324234324324234324324234234234243424242"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/img_uplive_tips_ar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/default_icon" />
+
+
+    </FrameLayout>
+
+
+</FrameLayout>
