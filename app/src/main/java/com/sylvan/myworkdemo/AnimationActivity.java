@@ -5,16 +5,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewPropertyAnimator;
-import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.sylvan.myworkdemo.utils.DimenUtils;
 
 public class AnimationActivity extends AppCompatActivity {
@@ -503,6 +505,20 @@ public class AnimationActivity extends AppCompatActivity {
 //                }
 //            }
 //        }, 500);
+
+        RecyclerView recyclerView=new RecyclerView(this);
+        boolean b = recyclerView.canScrollVertically(-1);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
     }
 
     public void StartAnim(View view) {

@@ -9,3 +9,7 @@
 /build
 /captures
 .externalNativeBuild
+app/libs/
+gradle/
+/.idea
+/.gitignore

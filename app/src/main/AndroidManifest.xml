@@ -25,6 +25,8 @@
         <activity android:name=".MarqueeActivity"/>
         <service android:name=".pip.FloatVideoService"/>
 
+        <activity android:name=".RecyclerViewActivity"/>
+
     </application>
 
 </manifest>

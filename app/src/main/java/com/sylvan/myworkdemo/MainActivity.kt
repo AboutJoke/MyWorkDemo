@@ -3,6 +3,7 @@ package com.sylvan.myworkdemo
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.sylvan.myworkdemo.pip.PipViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     fun startPip(){
         val intent = Intent(this, PipViewActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun startRecyclerView(view: View) {
+        val intent = Intent(this, RecyclerViewActivity::class.java)
         startActivity(intent)
     }
 }
