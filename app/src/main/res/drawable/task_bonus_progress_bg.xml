@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item >-->
+    <!--<nine-patch android:src="@drawable/out_glow"/>-->
+    <!--</item>-->
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="33dp" />
+
+            <gradient android:startColor="#6A3BF3"
+                android:centerColor="#6935FF"
+                android:endColor="#B620FF"/>
+        </shape>
+    </item>
+</layer-list>

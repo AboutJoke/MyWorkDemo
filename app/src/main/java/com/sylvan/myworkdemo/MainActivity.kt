@@ -30,4 +30,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, RecyclerViewActivity::class.java)
         startActivity(intent)
     }
+
+    fun startProgress(view: View) {
+        val intent = Intent(this, ProgressActivity::class.java)
+        startActivity(intent)
+    }
 }

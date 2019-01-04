@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.sylvan.myworkdemo.wiget.PorgressLayout
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/divider"
+            android:layout_toEndOf="@+id/divider2">
+
+        </com.sylvan.myworkdemo.wiget.PorgressLayout>
+
+        <TextView
+            android:text="1"
+            android:id="@+id/divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:layout_toEndOf="@+id/divider2"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:id="@+id/content"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:src="@drawable/k_diamond" />
+
+            <TextView
+                android:id="@+id/first_recharge_gift_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:gravity="center_vertical"
+                android:text="3330/1000"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/content"
+            android:text="1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
