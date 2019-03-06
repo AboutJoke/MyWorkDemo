@@ -35,4 +35,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ProgressActivity::class.java)
         startActivity(intent)
     }
+
+    fun startDraw(view: View){
+        val intent = Intent(this, MyTrapezoidActivity::class.java)
+        startActivity(intent)
+    }
 }

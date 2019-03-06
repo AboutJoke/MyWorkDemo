@@ -29,6 +29,8 @@
 
         <activity android:name=".ProgressActivity"/>
 
+        <activity android:name=".MyTrapezoidActivity"/>
+
     </application>
 
 </manifest>

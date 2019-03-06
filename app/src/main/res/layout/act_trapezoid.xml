@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!--<com.sylvan.myworkdemo.wiget.TrapezoidView-->
+    <!--android:id="@+id/text"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:text="Hot No.1"-->
+    <!--android:textColor="#FFFFFEFC"-->
+    <!--android:textSize="10sp" />-->
+
+    <com.sylvan.myworkdemo.wiget.TrapezoidImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Hot No.1"
+            android:textColor="#EB000000"
+            android:textSize="10sp" />
+
+    </com.sylvan.myworkdemo.wiget.TrapezoidImageView>
+
+    <com.sylvan.myworkdemo.wiget.DemoTextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="58dp"
+        android:gravity="center" />
+
+    <com.sylvan.myworkdemo.wiget.DemoLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="109dp">
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:text="Hot No.1"-->
+        <!--android:textColor="#FFFFFEFC"-->
+        <!--android:textSize="10sp" />-->
+
+    </com.sylvan.myworkdemo.wiget.DemoLayout>
+
 
 </RelativeLayout>
