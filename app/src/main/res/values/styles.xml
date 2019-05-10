@@ -14,4 +14,10 @@
         <item name="android:windowExitAnimation">@anim/anim_float_window_exit</item>
     </style>
 
+    <style name="RatingBarStyle" parent="@style/Widget.AppCompat.RatingBar">
+        <item name="android:progressBarStyle">@drawable/ratingbar_full</item>
+        <!--<item name="android:minHeight">24dp</item>-->
+        <!--<item name="android:maxHeight">24dp</item>-->
+    </style>
+
 </resources>

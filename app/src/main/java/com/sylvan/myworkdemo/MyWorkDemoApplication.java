@@ -14,4 +14,10 @@ public class MyWorkDemoApplication extends Application {
         s_ins = this;
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        MyActivityLifecycle callBack = new MyActivityLifecycle();
+        registerActivityLifecycleCallbacks(callBack);
+    }
 }

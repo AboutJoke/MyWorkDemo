@@ -40,4 +40,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, MyTrapezoidActivity::class.java)
         startActivity(intent)
     }
+
+    fun startRating(view: View){
+        val intent = Intent(this, MyRatingBarAct::class.java)
+        startActivity(intent)
+    }
+
+    fun startDialog() {
+
+    }
 }

@@ -13,3 +13,4 @@ app/libs/
 gradle/
 /.idea
 /.gitignore
+将删除 app/sampledata/
