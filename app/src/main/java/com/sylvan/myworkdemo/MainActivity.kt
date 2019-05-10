@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         anim.setOnClickListener { oneCoinAnim() }
-        pip.setOnClickListener {startPip()}
+        pip.setOnClickListener { startPip() }
     }
 
     fun oneCoinAnim() {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun startPip(){
+    fun startPip() {
         val intent = Intent(this, PipViewActivity::class.java)
         startActivity(intent)
     }
@@ -36,17 +36,17 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun startDraw(view: View){
+    fun startDraw(view: View) {
         val intent = Intent(this, MyTrapezoidActivity::class.java)
         startActivity(intent)
     }
 
-    fun startRating(view: View){
+    fun startRating(view: View) {
         val intent = Intent(this, MyRatingBarAct::class.java)
         startActivity(intent)
     }
 
-    fun startDialog() {
+    fun startImagePick() {
 
     }
 }

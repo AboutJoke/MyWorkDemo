@@ -33,6 +33,8 @@
 
         <activity android:name=".MyRatingBarAct"/>
 
+        <activity android:name=".ImagePickActivity"/>
+
     </application>
 
 </manifest>
