@@ -1,5 +1,6 @@
 package com.sylvan.myworkdemo.imagepick.helper;
 
+import android.graphics.RectF;
 import com.sylvan.myworkdemo.imagepick.edge.Edge;
 
 /**裁剪框缩放的帮助类
@@ -17,7 +18,13 @@ public class CropWindowScaleHelper {
         this.mVerticalEdge = mVerticalEdge;
     }
 
-    public void updateCropWindow() {
+    public void updateCropWindow(float x, float y, RectF imageRect) {
+        if (mHorizontalEdge != null) {
+            mHorizontalEdge.updateEdge(x, y, imageRect);
+        }
 
+        if (mVerticalEdge != null) {
+            mVerticalEdge.updateEdge(x, y, imageRect);
+        }
     }
 }

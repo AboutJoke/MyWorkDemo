@@ -46,7 +46,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun startImagePick() {
-
+    fun startImagePick(view: View) {
+        val intent = Intent(this, ImagePickActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -7,7 +7,7 @@ import android.graphics.RectF;
  * @Author: sylvan
  * @Date: 19-5-10
  */
-public enum Edge {
+public enum Edge { //裁剪框的四个角的坐标
     LEFT,
     TOP,
     RIGHT,
@@ -15,14 +15,16 @@ public enum Edge {
 
     //裁剪框最小高度
     static final int MIN_CROP_HEIGHT = 80;
-    float mBoundary;
 
-    public void initBoundary(int boundary) {
-        mBoundary = boundary;
+    //上下左右边界的坐标
+    float mCoordinate;
+
+    public void initCoordinate(float coordinate) {
+        mCoordinate = coordinate;
     }
 
-    public float getBoundary() {
-        return mBoundary;
+    public float getCoordinate() {
+        return mCoordinate;
     }
 
     /**
@@ -31,22 +33,22 @@ public enum Edge {
      * @param distance
      */
     public void offset(float distance) {
-        mBoundary += distance;
+        mCoordinate += distance;
     }
 
     public void updateEdge(float x, float y, RectF imageRect) {
         switch (this) {
             case TOP:
-                mBoundary = adjustTop(y, imageRect);
+                mCoordinate = adjustTop(y, imageRect);
                 break;
             case LEFT:
-                mBoundary = adjustLeft(x, imageRect);
+                mCoordinate = adjustLeft(x, imageRect);
                 break;
             case RIGHT:
-                mBoundary = adjustRight(x, imageRect);
+                mCoordinate = adjustRight(x, imageRect);
                 break;
             case BOTTOM:
-                mBoundary = adjustBottom(y, imageRect);
+                mCoordinate = adjustBottom(y, imageRect);
                 break;
         }
     }
@@ -73,7 +75,7 @@ public enum Edge {
      * @return
      */
     public static float getWidth() {
-        return Edge.RIGHT.getBoundary() - Edge.LEFT.getBoundary();
+        return Edge.RIGHT.getCoordinate() - Edge.LEFT.getCoordinate();
     }
 
     /**
@@ -82,7 +84,7 @@ public enum Edge {
      * @return
      */
     public static float getHeight() {
-        return Edge.BOTTOM.getBoundary() - Edge.TOP.getBoundary();
+        return Edge.BOTTOM.getCoordinate() - Edge.TOP.getCoordinate();
     }
 
     /**
@@ -95,16 +97,16 @@ public enum Edge {
         boolean result = false;
         switch (this) {
             case TOP:
-                result = mBoundary - imageRect.top < 0;
+                result = mCoordinate - imageRect.top < 0;
                 break;
             case LEFT:
-                result = mBoundary - imageRect.left < 0;
+                result = mCoordinate - imageRect.left < 0;
                 break;
             case RIGHT:
-                result = imageRect.right - mBoundary < 0;
+                result = imageRect.right - mCoordinate < 0;
                 break;
             case BOTTOM:
-                result = imageRect.bottom - mBoundary < 0;
+                result = imageRect.bottom - mCoordinate < 0;
                 break;
         }
         return result;
