@@ -5,8 +5,12 @@ import android.content.Context;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 import com.sylvan.myworkdemo.imagepick.edge.Edge;
+import com.sylvan.myworkdemo.imagepick.helper.CropWindowSelector;
+import com.sylvan.myworkdemo.utils.CatchEdgeUtil;
 import com.sylvan.myworkdemo.utils.DimenUtils;
 
 /**
@@ -26,6 +30,10 @@ public class CropImageView extends ImageView {
     private int mCornerLength;
 
     private RectF mBitmapRect;
+    private PointF mOffestPoint = new PointF();
+
+    //手指触摸到的边
+    private CropWindowSelector mHandlPressEdge;
 
 
     public CropImageView(Context context) {
@@ -83,11 +91,12 @@ public class CropImageView extends ImageView {
 
         //初始化四条边的边界
         Edge.LEFT.initCoordinate(imageRect.left + horizontalPadding);
-        Edge.RIGHT.initCoordinate(imageRect.right + horizontalPadding);
         Edge.TOP.initCoordinate(imageRect.top + verticalPadding);
-        Edge.BOTTOM.initCoordinate(imageRect.bottom + verticalPadding);
+        Edge.RIGHT.initCoordinate(imageRect.right - horizontalPadding);
+        Edge.BOTTOM.initCoordinate(imageRect.bottom - verticalPadding);
     }
 
+    //获取当前bitmap的rect
     private RectF getBitmapRect() {
 
         final Drawable drawable = getDrawable();
@@ -137,6 +146,92 @@ public class CropImageView extends ImageView {
     }
 
     private void drawCropConner(Canvas canvas) {
+        float left = Edge.LEFT.getCoordinate();
+        float top = Edge.TOP.getCoordinate();
+        float right = Edge.RIGHT.getCoordinate();
+        float bottom = Edge.BOTTOM.getCoordinate();
 
+        final float lateralOffset = (mCornerThickness - mBorderThickness) / 2f;
+        final float startOffset = mCornerThickness - (mBorderThickness / 2f);
+
+        //左上角左面的短线
+        canvas.drawLine(left - lateralOffset, top - startOffset, left - lateralOffset, top + mCornerLength, mCornerPaint);
+        //左上角上面的短线
+        canvas.drawLine(left - startOffset, top - lateralOffset, left + mCornerLength, top - lateralOffset, mCornerPaint);
+
+        //右上角右面的短线
+        canvas.drawLine(right + lateralOffset, top - startOffset, right + lateralOffset, top + mCornerLength, mCornerPaint);
+        //右上角上面的短线
+        canvas.drawLine(right + startOffset, top - lateralOffset, right - mCornerLength, top - lateralOffset, mCornerPaint);
+        //左下角左面的短线
+        canvas.drawLine(left - lateralOffset, bottom + startOffset, left - lateralOffset, bottom - mCornerLength, mCornerPaint);
+        //左下角底部的短线
+        canvas.drawLine(left - startOffset, bottom + lateralOffset, left + mCornerLength, bottom + lateralOffset, mCornerPaint);
+
+        //右下角左面的短线
+        canvas.drawLine(right + lateralOffset, bottom + startOffset, right + lateralOffset, bottom - mCornerLength, mCornerPaint);
+        //右下角底部的短线
+        canvas.drawLine(right + startOffset, bottom + lateralOffset, right - mCornerLength, bottom + lateralOffset, mCornerPaint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (!isEnabled()) {
+            return false;
+        }
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                onActionDown(event.getX(), event.getY());
+                return true;
+
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                onActionUp();
+                getParent().requestDisallowInterceptTouchEvent(false);
+                return true;
+
+            case MotionEvent.ACTION_MOVE:
+                onActionMove(event.getX(), event.getY());
+                getParent().requestDisallowInterceptTouchEvent(true);
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void onActionDown(float x, float y) {
+
+        float left = Edge.LEFT.getCoordinate();
+        float top = Edge.TOP.getCoordinate();
+        float right = Edge.RIGHT.getCoordinate();
+        float bottom = Edge.BOTTOM.getCoordinate();
+        mHandlPressEdge = CatchEdgeUtil.getPressedHandle(x, y, left, top, right, bottom, mScaleRadius);
+        if (mHandlPressEdge != null) {
+            Log.d(CropImageView.this.getClass().getName(), mHandlPressEdge.name());
+            CatchEdgeUtil.getOffest(mHandlPressEdge, x, y, left, right, top, bottom, mOffestPoint);
+            invalidate();
+        }
+
+    }
+
+    private void onActionUp() {
+        if (mHandlPressEdge != null) {
+            mHandlPressEdge = null;
+            invalidate();
+        }
+    }
+
+    private void onActionMove(float x, float y) {
+        if (mHandlPressEdge == null) {
+            return;
+        }
+
+        x += mOffestPoint.x;
+        y += mOffestPoint.y;
+
+
+        mHandlPressEdge.updateCropWindow(x, y, mBitmapRect);
+        invalidate();
     }
 }

@@ -18,6 +18,12 @@ public class CropWindowScaleHelper {
         this.mVerticalEdge = mVerticalEdge;
     }
 
+    /**
+     * 随着手指的移动而更新边的坐标
+     * @param x
+     * @param y
+     * @param imageRect
+     */
     public void updateCropWindow(float x, float y, RectF imageRect) {
         if (mHorizontalEdge != null) {
             mHorizontalEdge.updateEdge(x, y, imageRect);

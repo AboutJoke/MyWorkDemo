@@ -1,5 +1,6 @@
 package com.sylvan.myworkdemo.imagepick.helper;
 
+import android.graphics.RectF;
 import com.sylvan.myworkdemo.imagepick.edge.Edge;
 
 /**
@@ -36,5 +37,9 @@ public enum CropWindowSelector {
 
     CropWindowSelector(CropWindowScaleHelper helper) {
         this.helper = helper;
+    }
+
+    public void updateCropWindow(float x, float y, RectF rectF) {
+        helper.updateCropWindow(x, y, rectF);
     }
 }
