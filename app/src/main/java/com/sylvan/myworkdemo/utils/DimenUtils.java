@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -56,6 +57,11 @@ public class DimenUtils {
 
     public static int dp2px(float value) {
         return (int) (0.5f + applyDimension(DP_TO_PX, value, mMetrics));
+    }
+
+    public static int dip2px(float dpValue) {
+        final float scale = MyWorkDemoApplication.getInstance().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 
     public static int sp2px(float value) {

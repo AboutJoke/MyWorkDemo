@@ -1,36 +1,43 @@
 package com.sylvan.myworkdemo.imagepick.helper;
 
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 import com.sylvan.myworkdemo.imagepick.edge.Edge;
 
-/**裁剪框缩放的帮助类
- * @ClassName: com.sylvan.myworkdemo.imagepick.helper
- * @Author: sylvan
- * @Date: 19-5-10
+
+/**
+ * 操控裁剪框的辅助类:操控裁剪框的缩放
  */
-public class CropWindowScaleHelper {
+class CropWindowScaleHelper {
+
 
     private Edge mHorizontalEdge;
     private Edge mVerticalEdge;
 
-    public CropWindowScaleHelper(Edge mHorizontalEdge, Edge mVerticalEdge) {
-        this.mHorizontalEdge = mHorizontalEdge;
-        this.mVerticalEdge = mVerticalEdge;
+
+    CropWindowScaleHelper(Edge horizontalEdge, Edge verticalEdge) {
+        mHorizontalEdge = horizontalEdge;
+        mVerticalEdge = verticalEdge;
     }
+
 
     /**
-     * 随着手指的移动而更新边的坐标
-     * @param x
-     * @param y
-     * @param imageRect
+     * 随着手指的移动而改变裁剪框的大小
+     *
+     * @param x         手指x方向的位置
+     * @param y         手指y方向的位置
+     * @param imageRect 用来表示图片边界的矩形
      */
-    public void updateCropWindow(float x, float y, RectF imageRect) {
-        if (mHorizontalEdge != null) {
-            mHorizontalEdge.updateEdge(x, y, imageRect);
-        }
+    void updateCropWindow(float x,
+                          float y,
+                          @NonNull RectF imageRect) {
 
-        if (mVerticalEdge != null) {
-            mVerticalEdge.updateEdge(x, y, imageRect);
-        }
+        if (mHorizontalEdge != null)
+            mHorizontalEdge.updateCoordinate(x, y, imageRect);
+
+        if (mVerticalEdge != null)
+            mVerticalEdge.updateCoordinate(x, y, imageRect);
     }
+
+
 }

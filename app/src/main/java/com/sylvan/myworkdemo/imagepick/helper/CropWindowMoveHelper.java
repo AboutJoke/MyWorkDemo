@@ -1,22 +1,27 @@
+
+
 package com.sylvan.myworkdemo.imagepick.helper;
 
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
 import com.sylvan.myworkdemo.imagepick.edge.Edge;
 
-/**
- * @ClassName: com.sylvan.myworkdemo.imagepick.helper
- * @Author: sylvan
- * @Date: 19-5-10
- */
-public class CropWindowMoveHelper  extends CropWindowScaleHelper{
 
-    public CropWindowMoveHelper() {
+/**
+ * 表示手指再裁剪框里面，此时手指移动表明是移动（平移）裁剪框的操作
+ */
+class CropWindowMoveHelper extends CropWindowScaleHelper {
+
+
+    CropWindowMoveHelper() {
         super(null, null);
     }
 
+
     @Override
-    public void updateCropWindow(float x, float y, RectF imageRect) {
-        super.updateCropWindow(x, y, imageRect);
+    void updateCropWindow(float x,
+                          float y,
+                          @NonNull RectF imageRect) {
 
         //获取裁剪框的四个坐标位置
         float left = Edge.LEFT.getCoordinate();
@@ -85,4 +90,5 @@ public class CropWindowMoveHelper  extends CropWindowScaleHelper{
             Edge.TOP.offset(offset);
         }
     }
+
 }
