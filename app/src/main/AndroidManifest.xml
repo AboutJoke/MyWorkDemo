@@ -35,6 +35,8 @@
 
         <activity android:name=".ImagePickActivity"/>
 
+        <activity android:name=".BannerActivity"/>
+
     </application>
 
 </manifest>

@@ -50,4 +50,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, ImagePickActivity::class.java)
         startActivity(intent)
     }
+
+    fun startBanner(view: View) {
+        val intent = Intent(this, BannerActivity::class.java)
+        startActivity(intent)
+    }
 }
