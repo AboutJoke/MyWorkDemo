@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".MainActivity">
 
     <Button
-        android:text="动画"
-        android:id="@+id/anim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            android:text="动画"
+            android:id="@+id/anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     <Button
-        android:text="悬浮窗"
-        android:id="@+id/pip"
-        app:layout_constraintTop_toBottomOf="@+id/anim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            android:text="悬浮窗"
+            android:id="@+id/pip"
+            app:layout_constraintTop_toBottomOf="@+id/anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     <Button
-        android:text="列表"
-        android:onClick="startRecyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/pip"
-        android:id="@+id/recyclerview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            android:text="列表"
+            android:onClick="startRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/pip"
+            android:id="@+id/recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startProgress"
-        android:text="进度"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerview" />
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startProgress"
+            android:text="进度"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerview"/>
 
     <Button
-        android:id="@+id/trapzoid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startDraw"
-        android:text="渐变梯形"
-        app:layout_constraintTop_toBottomOf="@+id/progress" />
+            android:id="@+id/trapzoid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startDraw"
+            android:text="渐变梯形"
+            app:layout_constraintTop_toBottomOf="@+id/progress"/>
 
     <Button
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startRating"
-        android:text="RatingBar"
-        app:layout_constraintTop_toBottomOf="@+id/trapzoid" />
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startRating"
+            android:text="RatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/trapzoid"/>
 
     <Button
             android:id="@+id/imagepick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startImagePick"
-        android:text="ImagePick"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startImagePick"
+            android:text="ImagePick"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"/>
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="startBanner"
             android:text="banner"
-            app:layout_constraintTop_toBottomOf="@+id/imagepick" />
+            app:layout_constraintTop_toBottomOf="@+id/imagepick"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startBessel"
+            android:text="贝塞尔"
+            app:layout_constraintTop_toBottomOf="@+id/imagepick"/>
+
+</LinearLayout>

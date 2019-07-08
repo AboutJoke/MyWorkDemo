@@ -55,4 +55,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, BannerActivity::class.java)
         startActivity(intent)
     }
+
+    fun startBessel(view: View) {
+        val intent = Intent(this, BesselActivity::class.java)
+        startActivity(intent)
+    }
 }
